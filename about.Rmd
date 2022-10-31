@@ -1,5 +1,5 @@
 ---
-title: "My awesome website"
+title: "about"
 output: 
   html_document:
     toc: true
@@ -8,4 +8,4 @@ output:
 ---
 
 
-this is a direct link to [about](about.html)
+this is about website
