@@ -9,7 +9,7 @@ output:
 
 <br><br>![](Photos/Main_page_picture.jpeg){width=85% height=85%}<br>
 
-# Intro
+## Intro
 
 Hi, this is Youlan Shen, a first-year M.S. biostatistics student in Columbia Mailman School of Public Health. If you are interested in learning more about Columbia biostatistics program, you can click on this [link](https://www.mailman.columbia.edu/become-student/departments/biostatistics).
 
@@ -23,6 +23,6 @@ This is a direct link to [About Me](about.html). You can find my academic and pr
 
 
 
-# Plotly
+## Plotly
 
 [Here is](plotly.html) a page with plotly plots.

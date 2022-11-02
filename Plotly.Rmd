@@ -8,3 +8,60 @@ output:
 
 
 In this page, we are going to make some plotly plots.
+
+## Load package and data
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+```
+
+## select the columns that we will use
+
+```{r}
+data(instacart)
+
+instacart <- 
+  instacart %>%
+  janitor::clean_names() %>% 
+  select(
+    add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, days_since_prior_order, product_name, aisle, department)
+instacart
+```
+
+## Boxplot
+
+"Fruits are reordered more frequently than vegetables"
+
+```{r}
+instacart %>% 
+  select(days_since_prior_order, product_name, aisle, department) %>% 
+  filter(department == "produce") %>% 
+  group_by(product_name) %>% 
+  summarize(interval_time = mean(days_since_prior_order), aisle) %>% 
+  distinct() %>% 
+  plot_ly(y = ~interval_time, color = ~aisle, type = "box", colors = "viridis") 
+```
++ labs(
+    title = "Product Average Order Interval Time Distribution In Different Aisle",
+    x = "Different Aisle",
+    y = "Product Average Order Interval Time",
+  )
+  
+## Barplot
+
+"Healthier snacks tend to be purchased earlier in the day"
+
+```{r}
+instacart %>% 
+  select(order_hour_of_day, product_name, aisle, department) %>% 
+  filter(department == "snacks") %>% 
+  group_by(product_name) %>% 
+  summarize(mean_hour = mean(order_hour_of_day), product_name, aisle) %>% 
+  distinct() %>% 
+  plot_ly(x = ~product_name, y = ~mean_hour, color = ~aisle, type = "bar", colors = "viridis")
+```
+
+# Scatterplot
