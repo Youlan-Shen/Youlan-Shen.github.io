@@ -19,3 +19,10 @@ If you reached this website, you can find links about my information on this pag
 On the upper right navigation bar, you can find an About Me page, a link to email me, a link to my Github page, and also a link about UCLA Applied Math program (introduction of majors).
 
 This is a direct link to [About Me](about.html). You can find my academic and professional experience on this page.
+
+
+
+
+# Plotly
+
+[Here is](plotly.html) a page with plotly plots.
