@@ -4,12 +4,14 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
+    - text: "About Me"
       href: about.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:ys3637@cumc.columbia.edu
     - icon: fa-github fa-lg
       href: http://github.com/Youlan-Shen/
+    - icon: fa-solid fa-school
+      href: https://ww3.math.ucla.edu/majors-minors-specializations/
 output:
   html_document:
     theme: lumen
