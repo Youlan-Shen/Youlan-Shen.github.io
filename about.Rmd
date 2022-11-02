@@ -9,5 +9,6 @@ output:
 
 This is a page where you can find my past academic and professional experience.
 
+
 <br><br>![](Photos/CV_p1.png){width=85% height=85%}
 <br><br>![](Photos/CV_p2.png){width=85% height=85%}
