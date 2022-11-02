@@ -14,4 +14,4 @@ navbar:
       href: https://ww3.math.ucla.edu/majors-minors-specializations/
 output:
   html_document:
-    theme: lumen
+    theme: cerulean

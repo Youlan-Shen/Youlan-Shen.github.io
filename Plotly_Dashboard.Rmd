@@ -1,26 +1,21 @@
 ---
-title: "Plotly Page"
+title: "Plotly Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-
-In this page, we are going to make some plotly plots.
-
-## Load package and data
-
-```{r}
+```{r setup, include=FALSE}
+# library packages and read in the data
+library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 
 library(plotly)
 ```
 
-## select the columns that we will use
-
-```{r}
+```{r, include = FALSE}
 data(instacart)
 
 instacart <- 
@@ -28,12 +23,13 @@ instacart <-
   janitor::clean_names() %>% 
   select(
     add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, days_since_prior_order, product_name, aisle, department)
-instacart
+
 ```
 
-## Boxplot
+Column {data-width=450}
+-----------------------------------------------------------------------
 
-"Fruits are reordered more frequently than vegetables"
+### Product Average Order Interval Time Distribution in Different Aisle in Produce Department
 
 ```{r}
 instacart %>% 
@@ -42,17 +38,13 @@ instacart %>%
   group_by(product_name) %>% 
   summarize(interval_time = mean(days_since_prior_order), aisle) %>% 
   distinct() %>% 
-  plot_ly(y = ~interval_time, color = ~aisle, type = "box", colors = "viridis") 
+  plot_ly(y = ~interval_time, color = ~aisle, type = "box", colors = "viridis")
 ```
-labs(
-    title = "Product Average Order Interval Time Distribution In Different Aisle",
-    x = "Different Aisle",
-    y = "Product Average Order Interval Time",
-  )
-  
-## Barplot
 
-"Healthier snacks tend to be purchased earlier in the day"
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Mean Order Hour in A Day by Different Product in Snacks Department
 
 ```{r}
 instacart %>% 
@@ -64,11 +56,7 @@ instacart %>%
   plot_ly(x = ~product_name, y = ~mean_order_hour, color = ~aisle, type = "bar", colors = "viridis")
 ```
 
-# Scatterplot
-
-Maybe the order placement hour is related to reorder interval time.
-
-Result shows: No!, it isn't.
+### Order Interval Time V.S. Mean Order Hour by Product in A Day in Different Aisle in Frozen Department
 
 ```{r}
 instacart %>% 
@@ -79,4 +67,6 @@ instacart %>%
   distinct() %>% 
   plot_ly(x = ~mean_order_hour, y = ~interval_time, color = ~aisle, type = "scatter", colors = "viridis", alpha = 0.5)
 ```
+
+
 
